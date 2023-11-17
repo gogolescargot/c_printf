@@ -16,7 +16,7 @@ SRCS =
 
 OBJS = $(SRCS:.c=.o)
 
-INCL = libft.h
+INCL = libftprintf.h
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
