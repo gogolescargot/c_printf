@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putaddr.c                                       :+:      :+:    :+:   */
+/*   ft_countptrnbr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggalon <ggalon@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 19:56:17 by ggalon            #+#    #+#             */
-/*   Updated: 2023/11/17 20:49:58 by ggalon           ###   ########.fr       */
+/*   Created: 2023/11/18 23:19:40 by ggalon            #+#    #+#             */
+/*   Updated: 2023/11/18 23:28:21 by ggalon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-void	ft_putaddr(void *p, size_t i)
+int	ft_countptrnbr(void *p)
 {
-	char	*base;
-	
-	base = "0123456789abcdef";
-	if (p == NULL && i == 0)
-		return (ft_putstr("(nil)"));
-	if (p > 0)
+	int	i;
+
+	i = 2;
+	if (!p)
+		return (5);
+	while ((size_t)p > 0)
 	{
-		if (i++ == 0)
-			ft_putstr("0x");
-		ft_putaddr((void *)((size_t)p / 16), i);
-		ft_putchar(*(base + ((size_t)p % 16)));
+		p = (void *)((size_t)p / 16);
+		i++;
 	}
+	return (i);
 }

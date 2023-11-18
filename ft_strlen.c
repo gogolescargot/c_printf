@@ -6,11 +6,11 @@
 /*   By: ggalon <ggalon@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 19:41:59 by ggalon            #+#    #+#             */
-/*   Updated: 2023/11/17 19:42:26 by ggalon           ###   ########.fr       */
+/*   Updated: 2023/11/18 20:45:14 by ggalon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 size_t	ft_strlen(const char *s)
 {

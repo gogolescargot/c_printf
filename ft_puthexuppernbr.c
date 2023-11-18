@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_puthexuppernbr.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggalon <ggalon@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 19:31:12 by ggalon            #+#    #+#             */
-/*   Updated: 2023/11/18 21:00:48 by ggalon           ###   ########.fr       */
+/*   Created: 2023/11/18 17:59:52 by ggalon            #+#    #+#             */
+/*   Updated: 2023/11/18 21:00:41 by ggalon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_putstr(char *s)
+void	ft_puthexuppernbr(unsigned int nb)
 {
-	write(1, s, ft_strlen(s));
-	return (ft_strlen(s));
+	char	*base;
+
+	base = "0123456789ABCDEF";
+	if (nb > 15)
+	{
+		ft_puthexuppernbr(nb / 16);
+		ft_putchar(base[nb % 16]);
+	}
+	else
+		ft_putchar(base [nb]);
 }

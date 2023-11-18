@@ -12,11 +12,11 @@
 
 NAME = libftprintf.a
 
-SRCS =
+SRCS = ft_printf.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_putunbr.c ft_putptr.c ft_puthexlowernbr.c ft_puthexuppernbr.c ft_strchr.c ft_strlen.c
 
 OBJS = $(SRCS:.c=.o)
 
-INCL = libftprintf.h
+INCL = ft_printf.h
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
