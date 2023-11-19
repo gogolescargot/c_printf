@@ -6,7 +6,7 @@
 /*   By: ggalon <ggalon@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 21:24:02 by ggalon            #+#    #+#             */
-/*   Updated: 2023/11/18 23:37:34 by ggalon           ###   ########.fr       */
+/*   Updated: 2023/11/19 01:44:50 by ggalon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ size_t	ft_percent(const char *s, size_t i, va_list argptr)
 			ft_putnbr(temp), ft_countdecnbr(temp));
 	else if (s[i] == 'u' && i++)
 		return (temp = va_arg(argptr, unsigned int),
-			ft_putunbr(temp), ft_countdecnbr(temp));
+			ft_putunbr(temp), ft_countudecnbr(temp));
 	else if (s[i] == 'x' && i++)
 		return (temp = va_arg(argptr, unsigned int),
 			ft_puthexlowernbr(temp), ft_counthexnbr(temp));

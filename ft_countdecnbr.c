@@ -6,13 +6,13 @@
 /*   By: ggalon <ggalon@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:54:07 by ggalon            #+#    #+#             */
-/*   Updated: 2023/11/18 23:30:24 by ggalon           ###   ########.fr       */
+/*   Updated: 2023/11/19 01:45:32 by ggalon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_countdecnbr(long nb)
+int	ft_countdecnbr(int nb)
 {
 	size_t	i;
 	size_t	unb;
@@ -29,6 +29,19 @@ int	ft_countdecnbr(long nb)
 	{
 		i++;
 		unb /= 10;
+	}
+	return (i);
+}
+
+int	ft_countudecnbr(unsigned int nb)
+{
+	size_t	i;
+
+	i = 1;
+	while (nb >= 10)
+	{
+		i++;
+		nb /= 10;
 	}
 	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: ggalon <ggalon@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 22:42:40 by ggalon            #+#    #+#             */
-/*   Updated: 2023/11/18 23:33:30 by ggalon           ###   ########.fr       */
+/*   Updated: 2023/11/19 01:51:58 by ggalon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	ft_counthexnbr(unsigned int nb)
 {
 	int	i;
 
-	i = 0;
-	while (nb > 0)
+	i = 1;
+	while (nb > 15)
 	{
 		nb /= 16;
 		i++;

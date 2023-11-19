@@ -12,7 +12,7 @@
 
 NAME = libftprintf.a
 
-SRCS = ft_printf.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_putunbr.c ft_putptr.c ft_puthexlowernbr.c ft_puthexuppernbr.c ft_strchr.c ft_strlen.c
+SRCS = ft_printf.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_putunbr.c ft_putptr.c ft_puthexlowernbr.c ft_puthexuppernbr.c ft_strlen.c ft_countdecnbr.c ft_counthexnbr.c ft_countptrnbr.c ft_percent.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -23,10 +23,10 @@ CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(INCL) Makefile
 	ar -rcs $@ $(OBJS)
 
-%.o: %.c $(INCL) $(MAKE)
+%.o: %.c $(INCL) Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
