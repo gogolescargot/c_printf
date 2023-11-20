@@ -38,5 +38,5 @@ size_t	ft_percent(const char *s, size_t i, va_list argptr)
 			ft_puthexuppernbr(temp), ft_counthexnbr(temp));
 	else if (s[i] == '%' && i++)
 		return (ft_putchar('%'), 1);
-	return (0);
+	return (ft_putchar('%'), ft_putchar(s[i]), 2);
 }
