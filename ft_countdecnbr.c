@@ -6,11 +6,11 @@
 /*   By: ggalon <ggalon@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:54:07 by ggalon            #+#    #+#             */
-/*   Updated: 2023/11/19 01:45:32 by ggalon           ###   ########.fr       */
+/*   Updated: 2023/11/20 21:53:41 by ggalon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_countdecnbr(int nb)
 {
