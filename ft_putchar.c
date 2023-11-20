@@ -6,13 +6,13 @@
 /*   By: ggalon <ggalon@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 19:49:05 by ggalon            #+#    #+#             */
-/*   Updated: 2023/11/18 23:35:38 by ggalon           ###   ########.fr       */
+/*   Updated: 2023/11/20 17:22:01 by ggalon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(char c)
+size_t	ft_putchar(char c)
 {
 	write(1, &c, 1);
 	return (1);
