@@ -6,7 +6,7 @@
 /*   By: ggalon <ggalon@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 18:55:06 by ggalon            #+#    #+#             */
-/*   Updated: 2023/11/20 21:42:16 by ggalon           ###   ########.fr       */
+/*   Updated: 2023/11/21 06:26:14 by ggalon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int	ft_printf(const char *s, ...)
 	i = -1;
 	cprint = 0;
 	if (!s)
-		return (-1);
+		return (va_end(argptr), -1);
 	while (++i < ft_strlen(s))
 	{
 		if (s[i] == '%' && ++i)
 		{
 			if (!s[i])
-				return (-1);
+				return (va_end(argptr), -1);
 			cprint += ft_percent(s, i, argptr);
 		}
 		else
