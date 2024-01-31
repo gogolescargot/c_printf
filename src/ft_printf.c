@@ -29,7 +29,8 @@ int	ft_printf(const char *s, ...)
 		{
 			if (!s[i + 1])
 				return (va_end(argptr), -1);
-			ft_percent(s + i, &l, argptr);
+			if (ft_percent(s + i, &l, argptr))
+				return (-1);
 			i++;
 		}
 		else

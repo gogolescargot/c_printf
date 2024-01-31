@@ -22,24 +22,35 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-void	ft_percent(const char *s, int *l, va_list argptr)
+int	ft_unknow_percent(const char *str, int *l)
 {
-	if (s[1] == 'c')
-		ft_putchar(va_arg(argptr, int), l);
-	else if (s[1] == 's')
-		ft_putstr(va_arg(argptr, char *), l);
-	else if (s[1] == 'p')
-		ft_putptr(va_arg(argptr, void *), l);
-	else if (s[1] == 'd' || s[1] == 'i')
-		ft_putnbr(va_arg(argptr, int), 10, 0, l);
-	else if (s[1] == 'u')
-		ft_putnbr(va_arg(argptr, unsigned int), 10, 0, l);
-	else if (s[1] == 'x')
-		ft_putnbr(va_arg(argptr, unsigned int), 16, 0, l);
-	else if (s[1] == 'X')
-		ft_putnbr(va_arg(argptr, unsigned int), 16, 16, l);
-	else if (s[1] == '%')
-		ft_putchar('%', l);
+	int	temp;
+
+	temp = write(1, str, 2);
+	*l += temp;
+	if (temp == -1)
+		return (1);
+	return (0);
+}
+
+int	ft_percent(const char *str, int *l, va_list argptr)
+{
+	if (str[1] == 'c')
+		return (ft_putchar(va_arg(argptr, int), l));
+	else if (str[1] == 's')
+		return (ft_putstr(va_arg(argptr, char *), l));
+	else if (str[1] == 'p')
+		return (ft_putptr(va_arg(argptr, void *), l));
+	else if (str[1] == 'd' || str[1] == 'i')
+		return (ft_putnbr(va_arg(argptr, int), 10, 0, l));
+	else if (str[1] == 'u')
+		return (ft_putnbr(va_arg(argptr, unsigned int), 10, 0, l));
+	else if (str[1] == 'x')
+		return (ft_putnbr(va_arg(argptr, unsigned int), 16, 0, l));
+	else if (str[1] == 'X')
+		return (ft_putnbr(va_arg(argptr, unsigned int), 16, 16, l));
+	else if (str[1] == '%')
+		return (ft_putchar('%', l));
 	else
-		*l += write(1, s, 2);
+		return (ft_unknow_percent(str, l));
 }

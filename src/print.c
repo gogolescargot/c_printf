@@ -12,59 +12,92 @@
 
 #include "../inc/ft_printf.h"
 
-void	ft_putchar(char c, int *l)
+int	ft_putchar(char c, int *l)
 {
-	*l += write(1, &c, 1);
+	int	temp;
+
+	temp = write(1, &c, 1);
+	*l += temp;
+	if (temp == -1)
+		return (1);
+	return (0);
 }
 
-void	ft_putstr(char *s, int *l)
+int	ft_putstr(char *s, int *l)
 {
+	int	temp;
+
 	if (!s)
-		*l += write(1, "(null)", 6);
+	{
+		temp = write(1, "(null)", 6);
+		*l += temp;
+		if (temp == -1)
+			return (1);
+	}
 	else
-		*l += write(1, s, ft_strlen(s));
+	{
+		temp = write(1, s, ft_strlen(s));
+		*l += temp;
+		if (temp == -1)
+			return (1);
+	}
+	return (0);
 }
 
-void	ft_putnbr(long nbr, int base, int uppercase, int *l)
+int	ft_putnbr(long nbr, int base, int uppercase, int *l)
 {
 	char	*table;
 
 	table = "0123456789abcdef0123456789ABCDEF";
 	if (nbr == -2147483648)
 	{
-		ft_putstr("-2147483648", l);
-		return ;
+		if (ft_putstr("-2147483648", l))
+			return (1);
+		return (0);
 	}
 	if (nbr < 0)
 	{
-		ft_putchar('-', l);
+		if (ft_putchar('-', l))
+			return (1);
 		nbr *= -1;
 	}
 	if (nbr >= base)
-		ft_putnbr(nbr / base, base, uppercase, l);
-	ft_putchar(table[nbr % base + uppercase], l);
+	{
+		if (ft_putnbr(nbr / base, base, uppercase, l))
+			return (1);
+	}
+	if (ft_putchar(table[nbr % base + uppercase], l))
+		return (1);
+	return (0);
 }
 
-void	ft_putptr_rec(size_t p, int *l, char *base)
+int	ft_putptr_rec(size_t p, int *l, char *base)
 {
 	if (p >= 16)
-		ft_putptr_rec(p / 16, l, base);
-	ft_putchar(base[p % 16], l);
+		if (ft_putptr_rec(p / 16, l, base))
+			return (1);
+	if (ft_putchar(base[p % 16], l))
+		return (1);
+	return (0);
 }
 
-void	ft_putptr(void *p, int *l)
+int	ft_putptr(void *p, int *l)
 {
 	char	*base;
 
 	base = "0123456789abcdef";
 	if (p == NULL)
 	{
-		ft_putstr("(nil)", l);
-		return ;
+		if (ft_putstr("(nil)", l))
+			return (1);
+		return (0);
 	}
 	else
 	{
-		ft_putstr("0x", l);
-		ft_putptr_rec((size_t)p, l, base);
+		if (ft_putstr("0x", l))
+			return (1);
+		if (ft_putptr_rec((size_t)p, l, base))
+			return (1);
 	}
+	return (0);
 }

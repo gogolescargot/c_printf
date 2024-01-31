@@ -18,11 +18,11 @@
 # include <stdarg.h>
 
 size_t	ft_strlen(const char *s);
-void	ft_putchar(char c, int *l);
-void	ft_putstr(char *s, int *l);
-void	ft_putptr(void *p, int *l);
-void	ft_putnbr(long nbr, int base, int uppercase, int *l);
-void	ft_percent(const char *s, int *l, va_list argptr);
+int		ft_putchar(char c, int *l);
+int		ft_putstr(char *s, int *l);
+int		ft_putptr(void *p, int *l);
+int		ft_putnbr(long nbr, int base, int uppercase, int *l);
+int		ft_percent(const char *s, int *l, va_list argptr);
 int		ft_printf(const char *s, ...);
 
 #endif

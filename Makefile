@@ -55,7 +55,7 @@ all:
 	@ echo "\n${BIGreen}Project Ready !${NC}\n"
 
 $(NAME): $(OBJS)
-	@ echo "\n${BICyan}Creating the executable...${NC}"
+	@ echo "\n${BICyan}Creating the library...${NC}"
 	$(AR) $(AR_FLAGS) $(NAME) $(OBJS)
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(INCL) Makefile
