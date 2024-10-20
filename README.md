@@ -7,3 +7,21 @@ You will mainly learn about using a variable number of arguments. How cool is th
 It is actually pretty cool :)
 
 #### Grade 100/100
+
+---
+
+### How to run :
+
+```bash
+# Compile
+make
+
+# Delete Objects files
+make clean
+
+# Clean and Delete Executable file
+make fclean
+
+# Full Clean and Recompile
+make re
+```
